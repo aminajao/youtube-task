@@ -1,0 +1,31 @@
+<template>
+  <q-card flat>
+    <q-img :src="video.thumbnail_img" style="border-radius: 10px;" height="210px" fit="cover" />
+
+    <q-card-section class="q-pl-none q-pt-none">
+      <q-item class="q-pl-none">
+        <q-item-section avatar style="justify-content: flex-start">
+          <q-avatar>
+            <img :src="video.channel_img"/>
+          </q-avatar>
+        </q-item-section>
+
+        <q-item-section>
+          <q-item-label style="font-size: 16px; font-weight: 500">{{ video.title }}</q-item-label>
+          <q-item-label>{{ video.channel }}</q-item-label>
+          <q-item-label caption>{{ video.views }} Views</q-item-label>
+        </q-item-section>
+      </q-item>
+    </q-card-section>
+  </q-card>
+</template>
+
+<script setup lang="ts">
+import { Video } from './models';
+
+interface Props {
+  video: Video;
+}
+
+withDefaults(defineProps<Props>(), {});
+</script>
